@@ -1,0 +1,32 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+  }
+  
+  .swim-lanes {
+    min-height: 60vh;
+  }
+  
+  .task-card {
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .task-card:hover {
+    cursor: grab;
+  }
+  
+  .lane {
+    min-height: 60vh;
+  }
+  
+  .card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  
