@@ -45,6 +45,34 @@
     background-color: #218838;
   }
   
+  #todo-form {
+    display: none;
+    margin-top: 20px;
+    transition: opacity 0.3s ease;
+  }
+  
+  #todo-form input,
+  #todo-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #todo-form button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #todo-form button:hover {
+    background-color: #218838;
+  }
+  
   .clipboard {
     width: 100%;
     padding: 20px;
@@ -78,6 +106,7 @@
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     cursor: grabbing;
+    position: relative;
   }
   
   .is-dragging {
@@ -147,5 +176,28 @@
   
   #todo-form button:hover {
     background-color: #218838;
+  }
+  
+  /* Delete Button Styles */
+  .delete-btn {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff1c1c;
+    transform: scale(1.1);
+  }
+  
+  .delete-btn:active {
+    transform: scale(0.9);
   }
   
