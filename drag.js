@@ -19,7 +19,24 @@ droppables.forEach((zone) => {
 });
 
 const insertAboveTask = (zone, mouseY) => {
-    const els = zone.querySelectorAll()
+    const els = zone.querySelectorAll(".task: not (.is-dragging) ");
 
+    let closestTask = null;
+    let closestOffset = Number.NEGATIVE_INFINITY;
+
+    els.forEach((task) => {
+        const { top } = task.getBoundingClientRect();
+
+        const offset = mouseY - top;
+
+        if (offset < 0 && offset > closestOffset) {
+            closestOffset = offset;
+            closestTask = task;
+
+        }
+
+    });
+
+    return closestTask;
 };
 
