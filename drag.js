@@ -1,42 +1,48 @@
-const draggables = document.querySelectorAll(".task");
-const droppables = document.querySelectorAll(".row");
+const rows = document.querySelectorAll(".row");
 
-draggables.forEach((task) => {
-    task.addEventListener("dragstart", () => {
-        task.classList.add("is-dragging");
-    });
-    task.addEventListener("dragend", () => {
-        task.classList.remove("is-dragging");
-    });
+rows.forEach((row) => {
+  row.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(row, e.clientY);
+    const draggable = document.querySelector(".is-dragging");
+    if (afterElement == null) {
+      row.appendChild(draggable);
+    } else {
+      row.insertBefore(draggable, afterElement);
+    }
+  });
+  
+  row.addEventListener("drop", () => {
+    const draggable = document.querySelector(".is-dragging");
+    const taskId = Number(draggable.querySelector("h4").textContent);
+    const task = tasks.find((t) => t.id === taskId);
+    if (row.id === "not-started-row") {
+      task.status = "not-started";
+    } else if (row.id === "in-progress-row") {
+      task.status = "in-progress";
+    } else if (row.id === "completed-row") {
+      task.status = "completed";
+    }
+    saveTasks();
+    renderTasks();
+  });
 });
 
-droppables.forEach((zone) => {
-    zone.addEventListener("dragover", (e) => {
-        e.preventDefault();
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll(".task:not(.is-dragging)"),
+  ];
 
-        const bottomTask = insertAboveTask(zone, e.clientY);
-    });
-});
-
-const insertAboveTask = (zone, mouseY) => {
-    const els = zone.querySelectorAll(".task: not (.is-dragging) ");
-
-    let closestTask = null;
-    let closestOffset = Number.NEGATIVE_INFINITY;
-
-    els.forEach((task) => {
-        const { top } = task.getBoundingClientRect();
-
-        const offset = mouseY - top;
-
-        if (offset < 0 && offset > closestOffset) {
-            closestOffset = offset;
-            closestTask = task;
-
-        }
-
-    });
-
-    return closestTask;
-};
-
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}

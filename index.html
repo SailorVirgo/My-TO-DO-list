@@ -7,39 +7,41 @@
     <title>Task Board</title>
 
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
     <script src="drag.js" defer></script>
     <script src="todo.js" defer></script>
   </head>
 
   <body>
+    <header>
+      <h1>Task Board</h1>
+      <p>A simple Kanban board for task management</p>
+      <button id="add-task-btn">Add Task</button>
+    </header>
+
     <div class="clipboard">
-      <form id="todo-form">
-        <input type="text" placeholder="What To Do..." id="todo-input" />
-        <button type="submite">Lets Get It Done</button>
-      </form>
-
       <div class="columns">
-        <div class="row" id="todo-lane">
-          <h3 class="heading">TODO</h3>
-
-          <p class="task" draggable="true">Get groceries</p>
-          <p class="task" draggable="true">Take the dog out</p>
-          <p class="task" draggable="true">Do homework</p>
+        <div class="row" id="not-started-row">
+          <h3 class="heading">Not Yet Started</h3>
         </div>
-
-        <div class="row">
-          <h3 class="heading">Doing</h3>
-          
-          <p class="task" draggable="true">Practicing coding</p>
+        <div class="row" id="in-progress-row">
+          <h3 class="heading">In Progress</h3>
         </div>
-
-        <div class="row">
-          <h3 class="heading">Done</h3>
-          
-          <p class="task" draggable="true">Dishes</p>
+        <div class="row" id="completed-row">
+          <h3 class="heading">Completed</h3>
         </div>
+      </div>
+    </div>
 
-
+    <div id="task-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <form id="todo-form">
+          <input type="text" id="task-title" placeholder="Task Title" required />
+          <textarea id="task-desc" placeholder="Task Description" required></textarea>
+          <input type="date" id="task-deadline" required />
+          <button type="submit">Save Task</button>
+        </form>
       </div>
     </div>
   </body>
