@@ -52,7 +52,7 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
     taskElement.innerHTML = `
       <p><strong>${task.title}</strong></p>
       <p>${task.desc}</p>
-      <p><strong>${task.deadline}<strong></p>
+      <p>${task.deadline}</p>
       <button class="delete-btn">Delete</button>
     `;
   
