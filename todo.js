@@ -24,6 +24,7 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
   
   const saveTasks = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log("Tasks saved to localStorage:", tasks);
   };
   
   const colors = ["#FFCDD2", "#E1BEE7", "#C5CAE9", "#BBDEFB", "#C8E6C9", "#FFF9C4", "#FFECB3"];
@@ -36,8 +37,9 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
     const taskElement = document.createElement("div");
     taskElement.classList.add("task");
     taskElement.setAttribute("draggable", "true");
+    taskElement.setAttribute("data-id", task.id); // Store task ID in data attribute
     taskElement.innerHTML = `
-      <h4>${task.title}</h4>
+      <p>${task.title}</p>
       <p>${task.desc}</p>
       <p>${task.deadline}</p>
       <button class="delete-btn">Delete</button>
@@ -84,6 +86,7 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
         completedRow.appendChild(taskElement);
       }
     });
+    console.log("Tasks rendered:", tasks);
   };
   
   form.addEventListener("submit", (e) => {

@@ -14,17 +14,23 @@ rows.forEach((row) => {
   
   row.addEventListener("drop", () => {
     const draggable = document.querySelector(".is-dragging");
-    const taskId = Number(draggable.querySelector("h4").textContent);
+    const taskId = Number(draggable.getAttribute("data-id")); // Retrieve task ID from data attribute
+    console.log("Dragged Task ID:", taskId); // Log the taskId
     const task = tasks.find((t) => t.id === taskId);
-    if (row.id === "not-started-row") {
-      task.status = "not-started";
-    } else if (row.id === "in-progress-row") {
-      task.status = "in-progress";
-    } else if (row.id === "completed-row") {
-      task.status = "completed";
+    if (task) {
+      if (row.id === "not-started-row") {
+        task.status = "not-started";
+      } else if (row.id === "in-progress-row") {
+        task.status = "in-progress";
+      } else if (row.id === "completed-row") {
+        task.status = "completed";
+      }
+      console.log(`Task ${task.title} moved to ${task.status}`);
+      saveTasks();
+      renderTasks();
+    } else {
+      console.error("Task not found:", taskId);
     }
-    saveTasks();
-    renderTasks();
   });
 });
 
