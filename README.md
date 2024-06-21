@@ -1,4 +1,4 @@
-![Screenshot_20-6-2024_21924_sailorvirgo github io](https://github.com/SailorVirgo/My-TO-DO-list/assets/153470839/b72385ac-e05c-4943-8ccb-d339b819fb57)
+![image](https://github.com/SailorVirgo/My-TO-DO-list/assets/153470839/8d0d41eb-f2fd-476a-a610-defaf7265e45)
 
 
 # Task Board
