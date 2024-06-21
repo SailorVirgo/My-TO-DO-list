@@ -35,7 +35,7 @@ To get started with the project, follow these steps:
 1. Clone the repository to your local machine:
 
     ```sh
-    git clone https://github.com/yourusername/task-board.git
+    git clone git@github.com:SailorVirgo/My-TO-DO-list.git
     ```
 
 2. Navigate to the project directory:
