@@ -1,3 +1,6 @@
+![Screenshot_20-6-2024_21924_sailorvirgo github io](https://github.com/SailorVirgo/My-TO-DO-list/assets/153470839/b72385ac-e05c-4943-8ccb-d339b819fb57)
+
+
 # Task Board
 
 A simple Kanban board for task management, built with HTML, CSS, and JavaScript.
