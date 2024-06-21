@@ -54,6 +54,13 @@ To get started with the project, follow these steps:
     open index.html
     ```
 
+3. Copy link to  `website` in your browser:
+
+    ```sh
+    https://sailorvirgo.github.io/My-TO-DO-list/
+    ```
+    
+
 ## Usage
 
 1. Click the "Add Task" button to open the task creation modal.
